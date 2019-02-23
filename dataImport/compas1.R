@@ -35,3 +35,8 @@ trim <- select(both, c(sex, race, age, juv_fel_count, juv_misd_count, juv_other_
                   prison_length))
 trim2 <- select(both, c(age, juv_fel_count, juv_misd_count, juv_other_count,
                         priors_count, c_charge_degree, c_charge_desc, is_recid, prison_length))
+trim2 <- trim2[trim2$is_recid != -1, ]
+
+write.csv(trim, 'with_recid_vars.csv')
+write.csv(trim2, 'trimmed.csv')
+
